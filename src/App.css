@@ -1,0 +1,1236 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink-50: #fff7fa;
+  --pink-100: #ffe8f0;
+  --pink-200: #ffcbd9;
+  --pink-300: #f8a9c0;
+  --pink-400: #f47d9e;
+  --pink-500: #e85d88;
+  --pink-600: #d94672;
+  --pink-700: #a92d55;
+
+  --text: #2d2026;
+  --text-dark: #21171c;
+  --muted: #705d65;
+  --muted-dark: #57474e;
+
+  --white: #ffffff;
+  --border: #ead4dc;
+
+  --green: #13734f;
+  --green-bg: #eaf8f2;
+
+  --red: #b82f45;
+  --red-bg: #fff0f2;
+
+  --shadow: 0 10px 35px rgba(180, 72, 105, 0.1);
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--pink-50);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Make form controls use the same font */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  min-height: 76px;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid var(--border);
+
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  backdrop-filter: blur(12px);
+}
+
+/* Brand */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    var(--pink-600),
+    var(--pink-400)
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+
+  box-shadow:
+    0 7px 18px rgba(232, 93, 136, 0.25);
+}
+
+.brand h2 {
+  font-size: 17px;
+  font-weight: 800;
+
+  color: var(--text-dark);
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+.brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--muted-dark);
+
+  font-size: 11px;
+}
+
+/* Navbar actions */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-nav-button,
+.logout-button {
+  border: none;
+  border-radius: 10px;
+
+  padding: 10px 20px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.login-nav-button {
+  background: var(--pink-600);
+  color: #ffffff;
+}
+
+.login-nav-button:hover {
+  background: var(--pink-700);
+  transform: translateY(-1px);
+}
+
+.logout-button {
+  background: var(--pink-100);
+  color: var(--pink-700);
+}
+
+.logout-button:hover {
+  background: var(--pink-200);
+}
+
+/* =========================================================
+   USER INFO
+========================================================= */
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--pink-100);
+  color: var(--pink-700);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 800;
+}
+
+.user-info strong {
+  display: block;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: var(--text-dark);
+}
+
+.user-info small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: var(--muted-dark);
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+  width: min(1180px, 90%);
+
+  margin: 0 auto;
+
+  padding: 50px 0;
+
+  flex: 1;
+}
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.page-heading {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 25px;
+
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  color: var(--pink-700);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.page-heading h1 {
+  color: var(--text-dark);
+
+  font-size: 38px;
+  font-weight: 800;
+
+  margin-top: 7px;
+
+  letter-spacing: -1px;
+
+  line-height: 1.15;
+}
+
+.page-heading p {
+  margin-top: 9px;
+
+  color: var(--muted-dark);
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.add-button {
+  border: none;
+
+  background: var(--pink-600);
+  color: #ffffff;
+
+  padding: 12px 19px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.add-button:hover {
+  background: var(--pink-700);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   VIEWER / ADMIN NOTICE
+========================================================= */
+
+.viewer-notice,
+.admin-notice {
+  border-radius: 14px;
+
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 25px;
+}
+
+.viewer-notice {
+  background: var(--pink-100);
+  border: 1px solid var(--pink-200);
+}
+
+.admin-notice {
+  background: var(--green-bg);
+  border: 1px solid #c8eadb;
+}
+
+.notice-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+.viewer-notice strong,
+.admin-notice strong {
+  display: block;
+
+  color: var(--text-dark);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.viewer-notice p,
+.admin-notice p {
+  color: var(--muted-dark);
+
+  font-size: 11px;
+
+  margin-top: 3px;
+
+  line-height: 1.5;
+}
+
+.viewer-notice button {
+  margin-left: auto;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  background: var(--pink-600);
+  color: #ffffff;
+
+  padding: 9px 14px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.viewer-notice button:hover {
+  background: var(--pink-700);
+}
+
+.admin-notice > span {
+  font-size: 20px;
+  color: var(--green);
+}
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.form-card {
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 26px;
+
+  margin-bottom: 25px;
+
+  box-shadow: var(--shadow);
+}
+
+.form-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.form-header h2 {
+  color: var(--text-dark);
+
+  margin-top: 4px;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.close-form {
+  border: none;
+
+  background: var(--pink-50);
+  color: var(--pink-700);
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 8px;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.close-form:hover {
+  background: var(--pink-100);
+}
+
+/* Form grid */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--text-dark);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+
+  border: 1px solid var(--border);
+
+  border-radius: 9px;
+
+  padding: 12px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: var(--text-dark);
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #95828a;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--pink-500);
+
+  box-shadow:
+    0 0 0 3px rgba(232, 93, 136, 0.12);
+}
+
+.form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.cancel-button,
+.save-button {
+  border: none;
+
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: #f3eef0;
+  color: var(--muted-dark);
+}
+
+.cancel-button:hover {
+  background: #e9e1e4;
+}
+
+.save-button {
+  background: var(--pink-600);
+  color: #ffffff;
+}
+
+.save-button:hover {
+  background: var(--pink-700);
+}
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.table-card {
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
+}
+
+.table-header {
+  padding: 22px 24px;
+
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.table-header h2 {
+  color: var(--text-dark);
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.table-header p {
+  color: var(--muted-dark);
+
+  font-size: 11px;
+
+  margin-top: 4px;
+}
+
+.refresh-button {
+  border: 1px solid var(--border);
+
+  background: #ffffff;
+
+  color: var(--pink-700);
+
+  border-radius: 8px;
+
+  padding: 8px 12px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.refresh-button:hover {
+  background: var(--pink-50);
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 720px;
+}
+
+thead {
+  background: #fff3f7;
+}
+
+th {
+  padding: 15px 20px;
+
+  text-align: left;
+
+  color: #59474f;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+
+  white-space: nowrap;
+}
+
+td {
+  padding: 17px 20px;
+
+  border-top: 1px solid #f1e4e8;
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  vertical-align: middle;
+}
+
+td strong {
+  color: var(--text-dark);
+
+  font-weight: 700;
+}
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: #fffafd;
+}
+
+/* =========================================================
+   PRODUCT TEXT
+========================================================= */
+
+.price {
+  color: var(--pink-700);
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.quantity {
+  display: inline-block;
+
+  background: var(--pink-100);
+
+  color: var(--pink-700);
+
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions {
+  display: flex;
+
+  gap: 7px;
+
+  align-items: center;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+
+  border-radius: 7px;
+
+  padding: 7px 11px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.edit-button {
+  background: var(--pink-100);
+  color: var(--pink-700);
+}
+
+.edit-button:hover {
+  background: var(--pink-200);
+
+  transform: translateY(-1px);
+}
+
+.delete-button {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.delete-button:hover {
+  background: #ffe0e5;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+  min-height: 280px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--muted-dark);
+
+  text-align: center;
+
+  gap: 8px;
+
+  padding: 30px;
+}
+
+.empty-icon {
+  font-size: 40px;
+
+  margin-bottom: 5px;
+}
+
+.empty-state h3 {
+  color: var(--text-dark);
+
+  font-size: 18px;
+}
+
+.empty-state p {
+  color: var(--muted-dark);
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader {
+  width: 28px;
+  height: 28px;
+
+  border: 3px solid var(--pink-100);
+
+  border-top-color: var(--pink-600);
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.login-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #ffe5ee,
+      transparent 35%
+    ),
+    var(--pink-50);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+}
+
+.login-card {
+  width: min(420px, 100%);
+
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 38px;
+
+  box-shadow:
+    0 25px 70px rgba(180, 72, 105, 0.12);
+}
+
+.back-button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--pink-700);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-bottom: 30px;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.login-icon {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 17px;
+
+  background: var(--pink-100);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 27px;
+
+  margin-bottom: 20px;
+}
+
+.login-card h1 {
+  color: var(--text-dark);
+
+  font-size: 29px;
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+
+  line-height: 1.2;
+}
+
+.login-subtitle {
+  color: var(--muted-dark);
+
+  font-size: 13px;
+
+  margin-top: 7px;
+  margin-bottom: 28px;
+
+  line-height: 1.5;
+}
+
+.login-card form label {
+  display: block;
+
+  color: var(--text-dark);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  margin-bottom: 7px;
+}
+
+.login-card form input {
+  width: 100%;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  padding: 13px;
+
+  margin-bottom: 17px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: var(--text-dark);
+
+  font-size: 13px;
+}
+
+.login-card form input::placeholder {
+  color: #95828a;
+}
+
+.login-card form input:focus {
+  border-color: var(--pink-500);
+
+  box-shadow:
+    0 0 0 3px rgba(232, 93, 136, 0.12);
+}
+
+.login-button {
+  width: 100%;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 13px;
+
+  background: var(--pink-600);
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.login-button:hover {
+  background: var(--pink-700);
+
+  transform: translateY(-1px);
+}
+
+.login-note {
+  text-align: center;
+
+  margin-top: 20px;
+
+  color: var(--muted-dark);
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   REGISTER / LOGIN LINK
+========================================================= */
+
+.link-button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--pink-700);
+
+  font-size: inherit;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  text-align: center;
+
+  padding: 25px;
+
+  color: var(--muted-dark);
+
+  font-size: 10px;
+
+  border-top: 1px solid var(--border);
+
+  background: #ffffff;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .container {
+    width: 92%;
+
+    padding: 40px 0;
+  }
+
+  .page-heading h1 {
+    font-size: 34px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+  .navbar {
+    min-height: 70px;
+
+    padding: 0 4%;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .brand h2 {
+    font-size: 15px;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .container {
+    width: 92%;
+
+    padding: 35px 0;
+  }
+
+  .page-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .page-heading h1 {
+    font-size: 30px;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer-notice,
+  .admin-notice {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .viewer-notice button {
+    margin-left: 54px;
+  }
+
+  .login-card {
+    padding: 28px;
+  }
+
+  .table-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+  .navbar {
+    min-height: 68px;
+
+    padding: 0 4%;
+  }
+
+  .brand-icon {
+    width: 37px;
+    height: 37px;
+  }
+
+  .brand h2 {
+    font-size: 14px;
+  }
+
+  .logout-button,
+  .login-nav-button {
+    padding: 9px 13px;
+
+    font-size: 11px;
+  }
+
+  .container {
+    width: 94%;
+  }
+
+  .page-heading h1 {
+    font-size: 27px;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+
+  .table-header {
+    padding: 18px;
+  }
+
+  th,
+  td {
+    padding: 13px;
+  }
+
+  .actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 100%;
+  }
+
+  .login-card {
+    padding: 24px;
+  }
+
+  .login-card h1 {
+    font-size: 25px;
+  }
+}
