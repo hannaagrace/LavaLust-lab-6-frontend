@@ -2,7 +2,23 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || "https://lavalust-lab-6.onrender.com/api";
+
+const getApiConnectionError = (error, fallbackMessage = "Unable to reach the LavaLust API. Check the backend URL and confirm the server is running.") => {
+  if (error?.response?.data?.message) {
+    return error.response.data.message;
+  }
+
+  if (error?.response?.data?.error) {
+    return error.response.data.error;
+  }
+
+  if (error?.code === "ERR_NETWORK") {
+    return "Network error while connecting to LavaLust. Please confirm the backend is running and CORS is enabled.";
+  }
+
+  return fallbackMessage;
+};
 
 function App() {
   // =====================================
@@ -95,9 +111,7 @@ function App() {
         return;
       }
 
-      alert(
-        "Failed to load products. Make sure your LavaLust API is running."
-      );
+      alert(getApiConnectionError(error, "Failed to load products. Please check the LavaLust API status."));
     } finally {
       setLoading(false);
     }
@@ -200,7 +214,7 @@ function App() {
         );
       } else {
         alert(
-          "Network/CORS error. Make sure LavaLust is running."
+          getApiConnectionError(error, "Unable to connect to LavaLust. Please verify the backend is running and the API URL is correct.")
         );
       }
     }
@@ -285,7 +299,7 @@ function App() {
         );
       } else {
         alert(
-          "Network/CORS error. Make sure LavaLust is running."
+          getApiConnectionError(error, "Unable to connect to LavaLust. Please verify the backend is running and the API URL is correct.")
         );
       }
     }
@@ -447,7 +461,7 @@ function App() {
         );
       } else {
         alert(
-          "Network/CORS error. Make sure LavaLust is running."
+          getApiConnectionError(error, "Unable to connect to LavaLust. Please verify the backend is running and the API URL is correct.")
         );
       }
     }
@@ -540,7 +554,7 @@ function App() {
         );
       } else {
         alert(
-          "Network/CORS error. Make sure LavaLust is running."
+          getApiConnectionError(error, "Unable to connect to LavaLust. Please verify the backend is running and the API URL is correct.")
         );
       }
     }
